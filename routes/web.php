@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\FirstController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ComponentController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +23,7 @@ Route::get('/', function () {
 
 
 Route::get('/first', [FirstController::class, 'index']);   
+Route::get('/posts', [PostController::class, 'index']);   
+Route::get('/components', [ComponentController::class, 'index'])->name('index');  
+Route::get('/components/{component}', [ComponentController::class,'show'])->name('show');
+

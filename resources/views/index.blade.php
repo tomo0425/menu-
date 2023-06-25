@@ -10,11 +10,26 @@
     </head>
     <body>
         <div class="container">
-            <div class="row">
+            <div class="row" style="">
                 <div class="col-md-2"></div>
-                <div class="col-md-8" style="">
-                    <span class="border border-primary border-radius" style="font-size: 24px; padding:100px ;"></span>
-                    
+                <div class="col-md-8" style="position: absolute; top: 49%; left: 57%; transform: translate(-50%, -49%);">
+                    <div class="col-md-10 input-group"  style="">
+                        <form action="{{ route('index' ) }}"  class="mx-auto "method="GET">
+                            <div class="">
+                              <input type="text"　class=""   name="keyword" value="{{ $keyword }}" placeholder="検索キーワード" style="width: 400px;">
+                              <input type="submit"　class=""  value="検索">
+                            </div>
+                        </form>      
+                    </div>
+                    <div class='posts ' style="position: absolute; top: 50%; left: 30%;">
+                        @forelse ($components as $component)
+                            <div class='component ' style="margin: 50px 0;">
+                                <a href="/components/{{$component->id}}" class='title'>{{ $component->name }}</a>
+                            </div>
+                        @empty
+                            <p>NO POSTS</p>
+                        @endforelse
+                    </div>
                 </div>    
                 <div class="col-md-2"></div>
             </div>
